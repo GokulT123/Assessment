@@ -1,0 +1,45 @@
+<div id="listChart">
+
+  <div class="row m-8 chart-container" style=" background-color: white;">
+    <div class="pr-16" style="width: 35% !important;">
+      <div class="m-20">
+        <p class="ft-20">
+          {{ !firstCountryBoolean?currencyValue:currencySecondValue }}
+          {{ getCountryFullName(!firstCountryBoolean) }} equals
+        </p>
+        <h1>
+          {{ firstCountryBoolean?currencyValue:currencySecondValue }}
+          {{ getCountryFullName(firstCountryBoolean) }}
+        </h1>
+      </div>
+      <div class="border flexEnd">
+        <mat-form-field>
+          <input matInput [(ngModel)]="currencyValue" type="number"
+            (change)="onChangeCountry(countryDropdown,countrySecondDropdown,currencyValue)"
+            (keyup)="onChangeCountry(countryDropdown,countrySecondDropdown,currencyValue)">
+        </mat-form-field>
+        <select [(ngModel)]="countryDropdown" style="border: none;"
+          (change)="onChangeCountry(countryDropdown,countrySecondDropdown,currencyValue)">
+          <option *ngFor="let country of countryList" [value]="country.key">{{country.value}}</option>
+        </select>
+      </div>
+
+      <div class="border  flexEnd">
+        <mat-form-field>
+          <input matInput [(ngModel)]="currencySecondValue" type="number"
+            (change)="onChangeCountry(countrySecondDropdown,countryDropdown,currencySecondValue)"
+            (keyup)="onChangeCountry(countrySecondDropdown,countryDropdown,currencySecondValue)">
+        </mat-form-field>
+
+        <select [(ngModel)]="countrySecondDropdown" style="border: none;"
+          (change)="onChangeCountry(countrySecondDropdown,countryDropdown,currencySecondValue)">
+          <option *ngFor="let country of countryList" [value]="country.key">{{country.value}}</option>
+        </select>
+      </div>
+    </div>
+    <div style="width: 35%;">
+      <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'260px'}"></canvasjs-chart>
+    </div>
+  </div>
+
+</div>

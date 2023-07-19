@@ -1,0 +1,60 @@
+#listChart {
+  height: 100%;
+  width: 100%;
+
+  .w-50-p {
+    width: 50% !important;
+  }
+
+  .ft-20 {
+    font-size: 20px;
+  }
+
+  .m-20 {
+    margin: 20px !important;
+  }
+
+  .flexEnd {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .border {
+    padding: 8px;
+    border: 2px solid #dadce0;
+    caret-color: #1a73e8;
+    color: #171a1d;
+    overflow: hidden;
+    display: flex;
+    border-radius: 6px;
+    margin: 12px;
+  }
+
+  .border:hover {
+    border: 2px solid #171e24;
+  }
+
+  .border:focus-within {
+    border: 2px solid #039be5ed !important;
+  }
+
+}
+
+.row {
+  display: flex !important;
+  justify-content: row;
+  align-items: center;
+  margin: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  height: 90%;
+}
