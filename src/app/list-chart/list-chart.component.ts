@@ -45,16 +45,16 @@ export class ListChartComponent implements OnInit {
   amountConversion(fromCountry: string, toCountry: string, amount: number) {
     this.chartCountry = fromCountry;
     this.chartValue = amount;
-
-    this.getChart(toCountry, fromCountry);
     this.appService.amountConversion(fromCountry, toCountry, amount).subscribe((apiResponse: any) => {
       if (fromCountry == this.countryDropdown) {
         this.firstCountryBoolean = false;
         this.currencySecondValue = apiResponse.rates[toCountry];
+        this.getChart(toCountry, fromCountry);
       }
       else {
         this.firstCountryBoolean = true;
         this.currencyValue = apiResponse.rates[toCountry];
+        this.getChart(toCountry, fromCountry);
       }
     })
   }
@@ -64,6 +64,7 @@ export class ListChartComponent implements OnInit {
   }
 
   getChart(toCountry: any, fromCountry: any) {
+    this.chartOptions = {};
     let startDate: any = new Date();
     startDate.setDate(new Date().getDate() - 7);
     let endDate: any = new Date();
